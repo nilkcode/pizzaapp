@@ -1,10 +1,24 @@
+import { BrowserRouter as Router, Routes, Route,Link} from 'react-router-dom'
+import Naviagtion from './components/Naviagtion';
+import About from './pages/About';
+import Home from './pages/Home';
 
 
-function App(){
+
+const App = () =>{
     return (
-        <>
-            <h1>Hello Nilesh kahalkar Your are react Front End Developer</h1>
-            <p>this paragraph page which is for description</p>
+         <>
+            <Router>
+                 
+                 <Naviagtion/>
+
+                <Routes>
+                    <Route  path='/' element={<Home/>} exact></Route>
+                    <Route  path='/about' element={<About/>} exact></Route>
+                   {/*  <Route exact path='/' Component={}></Route> */}
+
+                </Routes>
+            </Router>
         </>
     )
 }
