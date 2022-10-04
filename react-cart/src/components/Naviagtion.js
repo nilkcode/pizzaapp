@@ -23,7 +23,7 @@ const Naviagtion = () => {
                     <Link to='/'>Home </Link>
                 </li>
                 <li className="mx-5">
-                    <Link to='/product'>Product</Link>
+                    <Link to='/products'>Product</Link>
                 </li>
                 <li className="flex item-center">
                     <Link to="/cart">

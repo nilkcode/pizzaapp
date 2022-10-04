@@ -1,9 +1,13 @@
 import React from 'react'
 import Product from './Product'
-import {useState,useEffect} from 'react'
+import {useState,useEffect ,useContext} from 'react'
 import { Link } from 'react-router-dom'
+import {CartContext} from '../CartContext'
 
 const Products = () => {
+
+ // const{name} = useContext(CartContext);
+  //console.log(name);
 
    const[products , setProducts]= useState([])
     
@@ -20,8 +24,8 @@ const Products = () => {
    
 
   return (
-    <div className='cont'>
-      <h1  className='text-lg font-bold my-8'>Products</h1>
+    <div >
+      <h1  className='text-lg font-bold my-8'>Products </h1>
     
         <div className='grid grid-cols-5 my-8 gap-24 align-center'>
             {
