@@ -9,7 +9,7 @@ const SingleProduct = () => {
   
   const param = useParams();
   const navigate = useNavigate();
-  console.log(param);
+//  console.log(param);
 
 
   const backHomePage = () => {

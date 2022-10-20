@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../CartContext";
+
 
 const Naviagtion = () => {
+
+   const{cart} = useContext(CartContext);
 
     const cartStyle = {
         backgroundColor:'#F59A0D',
@@ -13,6 +18,7 @@ const Naviagtion = () => {
     }
     
     return(
+       
         <>
          <nav className="container item-center mx-auto flex justify-between p-10">
             <Link to='/'>
@@ -28,14 +34,16 @@ const Naviagtion = () => {
                 <li className="flex item-center">
                     <Link to="/cart">
                         <div style={cartStyle}>
-                            <span style={{fontSize:13,marginRight:'3px'}}>10</span>
+                            <span style={{fontSize:13,marginRight:'3px'}}>{cart.totalItems ? cart.totalItems : 0}</span>
                             <img src="/images/cart.png"/>
                         </div>
                     </Link>
                 </li>
             </ul>
          </nav>
+       
         </>
+      
     )
     
 

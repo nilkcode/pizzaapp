@@ -7,12 +7,34 @@ import Home from './pages/Home';
 import ProductsPage from './pages/ProductsPage';
 import SingleProduct from './pages/SingleProduct';
 import { CartContext } from './CartContext';
+import { useState ,useEffect} from 'react';
+import Cart from './pages/Cart';
+import { getCart,storeCart } from './pages/helpers';
 
 const App = () =>{
+
+   const[cart ,setCart] = useState({});
+
+   //fetch from local strorage
+
+   useEffect(() => {
+    getCart().then(cart => {
+        setCart(JSON.parse(cart));
+    
+    });
+     
+   },[])
+
+    useEffect(() => {
+         storeCart(JSON.stringify(cart));
+    },[cart])
+        
+
+
     return (
          <>
             <Router>
-                 <CartContext.Provider value={{name:"nilesh coding"}}>
+                 <CartContext.Provider value={{cart,setCart}}>
                  <Naviagtion/>
 
                 <Routes>
@@ -21,7 +43,7 @@ const App = () =>{
                     <Route  path="/products" element={<ProductsPage/>} exact></Route>
                     <Route  path="/products/:_id" element={<SingleProduct/>} ></Route>
 
-                   {/*  <Route exact path='/' Component={}></Route> */}
+                  <Route exact path='/cart'  element={<Cart/>}></Route> 
 
                 </Routes>
                 </CartContext.Provider>
